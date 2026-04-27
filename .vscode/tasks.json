@@ -1,0 +1,48 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "tsc-watch",
+      "type": "shell",
+      "command": "npx",
+      "args": ["tsc", "--build", "--watch", "tsconfig.composite.json"],
+      "isBackground": true,
+      "problemMatcher": "$tsc-watch",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": ["npm-install"]
+    },
+    {
+      "label": "tsc-build",
+      "type": "shell",
+      "command": "npx",
+      "args": ["tsc", "--build", "tsconfig.composite.json"],
+      "problemMatcher": "$tsc",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": ["npm-install"]
+    },
+    {
+      "label": "npm-install",
+      "type": "shell",
+      "command": "npm",
+      "args": ["install", ".", "eufy-security-client"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "compile",
+      "type": "shell",
+      "dependsOrder": "sequence",
+      "dependsOn": ["npm-install", "tsc-build"]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+[submodule "eufy-security-client"]
+	path = eufy-security-client
+	url = https://github.com/jkt628/eufy-security-client
+	branch = debug

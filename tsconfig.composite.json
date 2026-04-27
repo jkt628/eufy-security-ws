@@ -1,0 +1,5 @@
+// Specialized tsconfig to enable composite build of .ts-files in the src dir
+{
+    "extends": "./tsconfig.json",
+    "references": [{ "path": "eufy-security-client/tsconfig.composite.json" }]
+}
